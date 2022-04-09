@@ -54,24 +54,61 @@ console.log(findMax(numbers)); */
 
 /* 7. Sugeneruokite masyvą, kurio reikšmės atsitiktinės raidės A, B, C ir D, o ilgis 100. Suskaičiuokite kiek yra kiekvienos raidės. (7 taškai) */
 
-/* var myArray = [];
-function letters() {
+/* function letters() {
   var text = "";
   var possible = "ABCD";
-  for (var i = 0; i < 4; i++)
+  for (var i = 0; i < 100; i++)
     text += possible.charAt(Math.floor(Math.random() * possible.length));
   return text;
 }
 console.log(letters());
-
-for (var j = 1; j <= 100; j++) {
-  myArray.push(j);
+const counts = [];
+for (const num of letters()) {
+  counts[num] = counts[num] ? counts[num] + 1 : 1;
 }
-console.log(myArray); */
+console.log("Counts:");
+console.log("\t- A: " + counts["A"]);
+console.log("\t- B: " + counts["B"]);
+console.log("\t- C: " + counts["C"]);
+console.log("\t- D: " + counts["D"]); */
 
-/* 8. Parašyti funkciją - lygineSuma. Funkcijos parametrai - du kintamieji. Testų reikalavimai - abu kitamieji turi būti arba skaičiai arba masyvai(negali būti vienas skaičius, kitas masyvas).
-Jei kintamieji skaičiai, grąžinti skaičių sumą, jei kintamieji masyvai - grąžinti masyvų ilgių sumą. Jei abu kintamieji skaičiai arba masyvai, bet suma nelyginė - grąžinti tekstą, kad suma nelyginė. (10 taškų)
-9. Parašyti funkciją pirminisSkaicius. Funkcija turi vieną kintamąjį. Turi būti patikrinimas, kad kintamasis yra skaičius. Funkcija turi grąžinti ar pateiktas skaičius yra pirminis( pirminis
-skaičius yra tas, kuris dalinasi tik iš savęs ir tik iš vieneto be liekanos.) (10 taškų)
-10. Parašyti funkciją telefonoNumeris. Funkcija turi priimti vieną kintamąjį - masyvą. Masyvo elementai - skaičiai, ilgis - 10. Funkcija turi grąžinti telefono numerį tokiu formatu - 
+/* 8. Parašyti funkciją - lygineSuma. Funkcijos parametrai - du kintamieji. Testų reikalavimai - abu kintamieji turi būti arba skaičiai arba masyvai(negali būti vienas skaičius, kitas masyvas).
+Jei kintamieji skaičiai, grąžinti skaičių sumą, jei kintamieji masyvai - grąžinti masyvų ilgių sumą. Jei abu kintamieji skaičiai arba masyvai, bet suma nelyginė - grąžinti tekstą, kad suma nelyginė. (10 taškų) */
+
+//trūksta palyginimo
+/* function lygineSuma(a, b) {
+  if (typeof a === "number" && typeof b === "number") {
+    return a + b;
+  } else if (typeof a === "object" && typeof b === "object") {
+    return a.length + b.length;
+  }
+}
+console.log("Masyvų ilgių suma: " + lygineSuma([10, 4, 5, 6], [2, 2]));
+console.log("Skaičių suma: " + lygineSuma(11, 20)); */
+
+/* 9. Parašyti funkciją pirminisSkaicius. Funkcija turi vieną kintamąjį. Turi būti patikrinimas, kad kintamasis yra skaičius. Funkcija turi grąžinti ar pateiktas skaičius yra pirminis( pirminis
+skaičius yra tas, kuris dalinasi tik iš savęs ir tik iš vieneto be liekanos.) (10 taškų) */
+
+/* function pirminisSkaicius(a) {
+  for (i = 2; i < a; i++)
+    if (a % i === 0 && a > 1) {
+      return "Skaičius nėra pirminis";
+    } else {
+      return "Skaičius yra pirminis";
+    }
+}
+console.log(pirminisSkaicius(13)); */
+
+/* 10. Parašyti funkciją telefonoNumeris. Funkcija turi priimti vieną kintamąjį - masyvą. Masyvo elementai - skaičiai, ilgis - 10. Funkcija turi grąžinti telefono numerį tokiu formatu - 
 "(XXX) XXX-XXXX". (10 taškų) */
+
+/* function telefonoNumeris(numbers) {
+  var cleaned = ("" + numbers).replace(/\D/g, "");
+  var match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
+  if (match) {
+    return "(" + match[1] + ") " + match[2] + "-" + match[3];
+  }
+  return null;
+}
+let numbers = [1, 2, 2, 3, 4, 3, 5, 5, 6, 6];
+console.log(telefonoNumeris(numbers)); */
