@@ -28,6 +28,12 @@ if (a > b) {
   console.log(Math.floor(Math.random(i) * 10) + 1);
 } */
 
+/* function rand(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+for (let = i = 0; i < 5; i++) {
+  console.log(rand(1, 10));
+} */
 /* 5. Naudojant while ciklą, spausdinti atsitiktinius skaičius nuo 1 iki 10. Paskutinis atspausdintas skaičius turi būti 5. (7 taškai) */
 
 /* do {
@@ -35,6 +41,15 @@ if (a > b) {
   console.log(random);
 } while (random !== 5); */
 
+//kitas sprendimas
+/* function rand(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+let n;
+while (n !== 5) {
+  n = rand(1, 10);
+  console.log(n);
+} */
 /* 6. Sukurti masyvą, kurio ilgis būtų nuo 20 iki 30, o reikšmės būtų skaičiai nuo 10 iki 30. Surasti didžiausią masyvo reikšmę, NENAUDOJANT sort() bei Math.max() funkcijų. (7 taškai) */
 
 /* let numbers = [
@@ -52,6 +67,23 @@ function findMax(numbers) {
 }
 console.log(findMax(numbers)); */
 
+//kitas sprendimas
+/* function rand(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+console.log(rand(1, 10)); // random sk. nuo 1 iki 10
+let masyvas = [];
+let max = 0;
+for (let i = 0; i < rand(20, 30); i++) {
+  masyvas.push(rand(10, 30));
+}
+console.log(masyvas);
+for (let i = 0; i < masyvas.length; i++) {
+  if (masyvas[i] > max) {
+    max = masyvas[i];
+  }
+}
+console.log("max: " + max); */
 /* 7. Sugeneruokite masyvą, kurio reikšmės atsitiktinės raidės A, B, C ir D, o ilgis 100. Suskaičiuokite kiek yra kiekvienos raidės. (7 taškai) */
 
 /* function letters() {
@@ -72,43 +104,115 @@ console.log("\t- B: " + counts["B"]);
 console.log("\t- C: " + counts["C"]);
 console.log("\t- D: " + counts["D"]); */
 
-/* 8. Parašyti funkciją - lygineSuma. Funkcijos parametrai - du kintamieji. Testų reikalavimai - abu kintamieji turi būti arba skaičiai arba masyvai(negali būti vienas skaičius, kitas masyvas).
-Jei kintamieji skaičiai, grąžinti skaičių sumą, jei kintamieji masyvai - grąžinti masyvų ilgių sumą. Jei abu kintamieji skaičiai arba masyvai, bet suma nelyginė - grąžinti tekstą, kad suma nelyginė. (10 taškų) */
+//kitas sprendimas
+/* function rand(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+const raides = ["A", "B", "C", "D"];
+const masyvas7 = [];
+for (let i = 0; i < 100; i++) {
+  masyvas7.push(raides[rand(0, 3)]);
+}
+console.log(masyvas7);
 
-//trūksta palyginimo
-/* function lygineSuma(a, b) {
-  if (typeof a === "number" && typeof b === "number") {
-    return a + b;
-  } else if (typeof a === "object" && typeof b === "object") {
-    return a.length + b.length;
+let countA = 0;
+let countB = 0;
+let countC = 0;
+let countD = 0;
+for (let i = 0; i < masyvas7.length; i++) {
+  if (masyvas7[i] === "A") {
+    countA++;
+  }
+  if (masyvas7[i] === "B") {
+    countB++;
+  }
+  if (masyvas7[i] === "C") {
+    countC++;
+  }
+  if (masyvas7[i] === "D") {
+    countD++;
   }
 }
-console.log("Masyvų ilgių suma: " + lygineSuma([10, 4, 5, 6], [2, 2]));
-console.log("Skaičių suma: " + lygineSuma(11, 20)); */
+console.log(
+  `Raidžių masyve yra: A: ${countA}, B: ${countB}, C: ${countC}, D: ${countD}`
+); */
+
+/* 8. Parašyti funkciją - lygineSuma. Funkcijos parametrai - du kintamieji. Testų reikalavimai - abu kintamieji turi būti arba skaičiai arba masyvai(negali būti vienas skaičius, kitas masyvas).
+Jei kintamieji skaičiai, grąžinti skaičių sumą, jei kintamieji masyvai - grąžinti masyvų ilgių sumą. Jei abu kintamieji skaičiai arba masyvai, bet suma nelyginė - grąžinti tekstą, kad suma nelyginė. (10 taškų) */
+/* function lygineSuma(a, b) {
+  if (typeof a === "number" && typeof b === "number") {
+    let suma = a + b;
+    if (suma % 2 === 0) {
+      return `Skaičių a + b suma yra: ${suma}`;
+    } else {
+      return "Skaičių suma nelyginė";
+    }
+  } else if (Array.isArray(a) && Array.isArray(b)) {
+    let suma = a.length + b.length;
+    if (suma % 2 === 0) {
+      return `Masyvų a ir b ilgių suma yra: ${suma}`;
+    } else {
+      return "Masyvų suma yra nelyginė";
+    }
+  } else {
+    return "Pateikti neteisingi kintamieji";
+  }
+}
+console.log(lygineSuma(2, 8));
+console.log(lygineSuma(2, 7));
+console.log(lygineSuma("2", 8));
+console.log(lygineSuma([2], 8));
+console.log(lygineSuma([2], [6, 2, 1]));
+console.log(lygineSuma([2], [8, 1, "456", "1"])); */
 
 /* 9. Parašyti funkciją pirminisSkaicius. Funkcija turi vieną kintamąjį. Turi būti patikrinimas, kad kintamasis yra skaičius. Funkcija turi grąžinti ar pateiktas skaičius yra pirminis( pirminis
 skaičius yra tas, kuris dalinasi tik iš savęs ir tik iš vieneto be liekanos.) (10 taškų) */
-
 /* function pirminisSkaicius(a) {
-  for (i = 2; i < a; i++)
-    if (a % i === 0 && a > 1) {
-      return "Skaičius nėra pirminis";
-    } else {
-      return "Skaičius yra pirminis";
+  if (typeof a !== "number") {
+    return "Pateiktas kintamasis nėra skaičius";
+  }
+  let count = 0; //kiek kartų iš savęs dalijasi skaičius
+  for (let i = 1; i <= a; i++) {
+    if (a % i === 0) {
+      count++;
     }
+  }
+  if (count < 2) {
+    return "Įvestas blogas skaičius";
+  }
+  if (count === 2) {
+    return "Įvestas pirminis skaičius";
+  }
+  if (count > 2) {
+    return "Įvestas sudėtinis skaičius";
+  }
 }
-console.log(pirminisSkaicius(13)); */
+console.log(pirminisSkaicius("AAAA"));
+console.log(pirminisSkaicius(4, 4, "AAAA"));
+console.log(pirminisSkaicius(0));
+console.log(pirminisSkaicius(3));
+console.log(pirminisSkaicius(17));
+console.log(pirminisSkaicius(15)); */
 
 /* 10. Parašyti funkciją telefonoNumeris. Funkcija turi priimti vieną kintamąjį - masyvą. Masyvo elementai - skaičiai, ilgis - 10. Funkcija turi grąžinti telefono numerį tokiu formatu - 
 "(XXX) XXX-XXXX". (10 taškų) */
 
-/* function telefonoNumeris(numbers) {
-  var cleaned = ("" + numbers).replace(/\D/g, "");
-  var match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
-  if (match) {
-    return "(" + match[1] + ") " + match[2] + "-" + match[3];
+/* function telefonoNumeris(a) {
+  if (!Array.isArray(a)) {
+    return "Kintamasis nėra masyvas";
   }
-  return null;
+  if (a.length !== 10) {
+    return "Masyvas yra netinkamo ilgio";
+  }
+  for (let i = 0; i < 10; i++) {
+    if (typeof a[i] !== "number") {
+      return "Masyvo reikšmės turi būti skaičiai";
+    }
+  }
+  return `(${a[0]}${a[1]}${a[2]}) ${a[3]}${a[4]}${a[5]}-${a[6]}${a[7]}${a[8]}${a[9]}`;
 }
-let numbers = [1, 2, 2, 3, 4, 3, 5, 5, 6, 6];
-console.log(telefonoNumeris(numbers)); */
+console.log(telefonoNumeris(17));
+console.log(telefonoNumeris("aajdjd"));
+console.log(telefonoNumeris(["hi", 3, 4, 5, 5, 5, 5, 5, 5, 5]));
+console.log(telefonoNumeris([2, 3, 4, 5, 5, 5, 5, 5, 5, 5]));
+console.log(telefonoNumeris([3, 4, 5, 6, 3, 2, 1])); */
